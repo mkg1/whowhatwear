@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      session[:user_id] = @author.id
       redirect_to @user, notice: 'User was successfully created.'
     else
       render :new
